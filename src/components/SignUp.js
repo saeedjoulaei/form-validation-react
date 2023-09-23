@@ -16,7 +16,7 @@ const SignUp = () => {
   const [touched, setTouched] = useState({});
 
   useEffect(() => {
-    setErrors(validate(data));
+    setErrors(validate(data, "signup"));
   }, [data, touched]);
 
   const changeHandler = (e) => {
@@ -51,6 +51,7 @@ const SignUp = () => {
     <div className={styles.container}>
       <form onSubmit={submitHandler} className={styles.formContainer}>
         <h2 className={styles.header}>Sign up</h2>
+
         <div className={styles.formField}>
           <label>name</label>
           <input
@@ -67,6 +68,7 @@ const SignUp = () => {
           />
           {errors.name && touched.name && <span>{errors.name}</span>}
         </div>
+
         <div className={styles.formField}>
           <label>password</label>
           <input
